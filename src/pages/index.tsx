@@ -1,10 +1,27 @@
-import { NextPage } from 'next';
-import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
+import { GetStaticProps, NextPage } from 'next';
+import { getAllPost } from '../data/posts/get-all-posts';
+import { PostData } from '../domain/posts/post';
 
-const Home: NextPage = () => {
-  return <h1>oi</h1>;
+export type HomeProps = {
+  posts: PostData[];
+};
+
+const Home = ({ posts }: HomeProps) => {
+  return (
+    <div>
+      {posts.map((post) => (
+        <h2 key={post.slug}>{post.title}</h2>
+      ))}
+    </div>
+  );
 };
 
 export default Home;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = await getAllPost();
+
+  return {
+    props: { posts },
+  };
+};
