@@ -9,7 +9,12 @@ export type PostProps = {
 };
 
 const Post = ({ post }: PostProps) => {
-  return <div>{post.title}</div>;
+  return (
+    <div>
+      <h1>{post.title}</h1>
+      <p dangerouslySetInnerHTML={{ __html: post.content }} />
+    </div>
+  );
 };
 
 export default Post;
@@ -34,9 +39,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { slug } = ctx.params;
-  const posts = await getPost(slug);
+  const post = await getPost(slug);
 
   return {
-    props: { post: posts[0] },
+    props: { post },
   };
 };
