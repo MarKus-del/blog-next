@@ -1,4 +1,4 @@
-import { GetStaticProps, NextPage } from 'next';
+import { GetStaticProps } from 'next';
 import HomePage from '../containers/HomePage';
 import { getAllPost } from '../data/posts/get-all-posts';
 import { PostData } from '../domain/posts/post';
