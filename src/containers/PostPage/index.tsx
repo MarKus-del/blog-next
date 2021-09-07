@@ -3,6 +3,7 @@ import { Header } from '../../components/Header';
 import { Heading } from '../../components/Heading';
 import { MainContainer } from '../../components/MainContainer';
 import { PostCover } from '../../components/PostCover';
+import { PostDetails } from '../../components/PostDetails';
 import { PostData } from '../../domain/posts/post';
 
 export type PostProps = {
@@ -16,6 +17,11 @@ export const PostPage = ({ post }: PostProps) => {
       <MainContainer>
         <Heading>{post.title}</Heading>
         <PostCover coverURL={post.cover.url} alt="fundo" />
+        <PostDetails
+          date={post.updated_at}
+          author={post.author.name}
+          category={post.category.name}
+        />
         <div dangerouslySetInnerHTML={{ __html: post.content }} />
       </MainContainer>
       <Footer />
