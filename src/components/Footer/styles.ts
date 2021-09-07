@@ -6,9 +6,6 @@ export const Container = styled.footer`
     margin: ${theme.spacings.medium};
     color: ${theme.colors.gray};
     font-size: ${theme.font.sizes.small};
-    position: absolute;
     bottom: 0;
-    left: 40%;
-    right: 40%;
   `}
 `;

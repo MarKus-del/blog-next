@@ -2,6 +2,7 @@ import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
 import { Heading } from '../../components/Heading';
 import { MainContainer } from '../../components/MainContainer';
+import { PostContainer } from '../../components/PostContainer';
 import { PostCover } from '../../components/PostCover';
 import { PostDetails } from '../../components/PostDetails';
 import { PostData } from '../../domain/posts/post';
@@ -22,7 +23,7 @@ export const PostPage = ({ post }: PostProps) => {
           author={post.author.name}
           category={post.category.name}
         />
-        <div dangerouslySetInnerHTML={{ __html: post.content }} />
+        <PostContainer content={post.content} />
       </MainContainer>
       <Footer />
     </>
