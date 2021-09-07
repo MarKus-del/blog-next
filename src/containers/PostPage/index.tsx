@@ -1,3 +1,4 @@
+import { Comments } from '../../components/Comments';
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
 import { Heading } from '../../components/Heading';
@@ -24,6 +25,7 @@ export const PostPage = ({ post }: PostProps) => {
           category={post.category.name}
         />
         <PostContainer content={post.content} />
+        <Comments title={post.title} slug={post.slug} />
       </MainContainer>
       <Footer />
     </>
