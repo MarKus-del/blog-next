@@ -2,6 +2,7 @@ import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
 import { Heading } from '../../components/Heading';
 import { MainContainer } from '../../components/MainContainer';
+import { PostCover } from '../../components/PostCover';
 import { PostData } from '../../domain/posts/post';
 
 export type PostProps = {
@@ -14,6 +15,7 @@ export const PostPage = ({ post }: PostProps) => {
       <Header />
       <MainContainer>
         <Heading>{post.title}</Heading>
+        <PostCover coverURL={post.cover.url} alt="fundo" />
         <div dangerouslySetInnerHTML={{ __html: post.content }} />
       </MainContainer>
       <Footer />
