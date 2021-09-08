@@ -1,4 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Error from 'next/error';
+import { useRouter } from 'next/router';
 import { PostPage } from '../../containers/PostPage';
 import { countAllPost } from '../../data/posts/count-all-posts';
 import { getAllPost } from '../../data/posts/get-all-posts';
@@ -10,6 +12,12 @@ export type PostProps = {
 };
 
 const Post = ({ post }: PostProps) => {
+  const router = useRouter();
+
+  if (router.isFallback) return <div>Loading...</div>;
+
+  if (!post) return <Error statusCode={404} />;
+
   return <PostPage post={post} />;
 };
 
@@ -29,7 +37,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths: postsPaths,
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -39,5 +47,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   return {
     props: { post },
+    revalidate: 5,
   };
 };
