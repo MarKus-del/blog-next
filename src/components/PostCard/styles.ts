@@ -10,11 +10,11 @@ export const Container = styled.div`
 
 export const PostCardCover = styled.div`
   margin-bottom: ${({ theme }) => theme.spacings.small};
+`;
 
-  .img {
-    width: 100%;
-    display: block;
-  }
+export const ImageCover = styled.img`
+  width: 100%;
+  display: block;
 `;
 
 export const PostCardHeading = styled.h2`

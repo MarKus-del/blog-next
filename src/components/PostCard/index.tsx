@@ -1,6 +1,10 @@
 import Link from 'next/link';
-import Image from 'next/image';
-import { Container, PostCardCover, PostCardHeading } from './styles';
+import {
+  Container,
+  PostCardCover,
+  PostCardHeading,
+  ImageCover,
+} from './styles';
 
 export type PostCardProps = {
   slug: string;
@@ -14,14 +18,7 @@ export const PostCard = ({ cover, slug, title }: PostCardProps) => {
       <PostCardCover>
         <Link href="/post/[slug]" as={`/post/${slug}`}>
           <a>
-            <Image
-              width={280}
-              height={280}
-              className="img"
-              layout="responsive"
-              src={cover}
-              alt={title}
-            />
+            <ImageCover src={cover} alt={title} />
           </a>
         </Link>
       </PostCardCover>
